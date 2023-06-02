@@ -1,25 +1,21 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "isolatedModules": true,
     "types": [
       "vite/client",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client",
-      "unplugin-vue-macros/macros-global",
-      "element-plus/global"
+      "vite-plugin-vue-layouts/client.d.ts",
+      "element-plus/global.d.ts"
     ],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": ["./src/**/*", "./src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.config.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
